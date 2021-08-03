@@ -10,12 +10,12 @@
 백엔드 서버에 구현되어 있는 API 및 그 사용 방법을 기술합니다.
 본 프로젝트의 API는 모두 REST API를 사용합니다.
 
-> url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디를 나타냅니다.
+url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디를 나타냅니다.
 
 
 - #### product/:id (GET)
 
-> 상품의 정보를 반환합니다.
+    > 상품의 정보를 반환합니다.
 
 
 - #### product (POST)
@@ -30,13 +30,13 @@
 
 - #### 예시
 
-```json
-{
-    "name": "새우깡",
-    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
-    "price": 2000
-}
-```
+    ```json
+    {
+        "name": "새우깡",
+        "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+        "price": 2000
+    }
+    ```
 
 
 - #### product/:id (PUT)
@@ -51,13 +51,13 @@
 
 - #### 예시
 
-```json
-{
-    "name": "새우깡",
-    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
-    "price": 2000
-}
-```
+    ```json
+    {
+        "name": "새우깡",
+        "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+        "price": 2000
+    }
+    ```
 
 
 - #### product/:id (DELETE)
