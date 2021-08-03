@@ -13,20 +13,41 @@
 > url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디를 나타냅니다.
 
 
-#### product/:id (GET)
+- #### product/:id (GET)
 
 > 상품의 정보를 반환합니다.
 
 
-#### product (POST)
+- #### product (POST)
 
-> 상품을 등록합니다.
+    > 상품을 등록합니다.
 
-| 인자 | 설명 | 타입 |
-| ---- | ---- | --- |
-| name  | 상품의 이름입니다.                  | String |
-| image | 상품의 이미지가 담긴 url 주소입니다.| String |
-| price | 상품의 가격입니다.                  | Number |
+    | 인자 | 설명 | 타입 |
+    | ---- | ---- | --- |
+    | name  | 상품의 이름입니다.                  | String |
+    | image | 상품의 이미지가 담긴 url 주소입니다.| String |
+    | price | 상품의 가격입니다.                  | Number |
+
+- #### 예시
+
+```json
+{
+    "name": "새우깡",
+    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+    "price": 2000
+}
+```
+
+
+- #### product/:id (PUT)
+
+    > 상품의 정보를 변경합니다.
+
+    | 인자 | 설명 | 타입 |
+    | ---- | ---- | --- |
+    | name  | 상품의 이름입니다.                  | String |
+    | image | 상품의 이미지가 담긴 url 주소입니다.| String |
+    | price | 상품의 가격입니다.                  | Number |
 
 #### 예시
 
@@ -39,27 +60,6 @@
 ```
 
 
-#### product/:id (PUT)
+- #### product/:id (DELETE)
 
-> 상품의 정보를 변경합니다.
-
-| 인자 | 설명 | 타입 |
-| ---- | ---- | --- |
-| name  | 상품의 이름입니다.                  | String |
-| image | 상품의 이미지가 담긴 url 주소입니다.| String |
-| price | 상품의 가격입니다.                  | Number |
-
-#### 예시
-
-```json
-{
-    "name": "새우깡",
-    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
-    "price": 2000
-}
-```
-
-
-#### product/:id (DELETE)
-
-> 상품을 삭제합니다.
+    > 상품을 삭제합니다.
