@@ -28,6 +28,16 @@
 | image | 상품의 이미지가 담긴 url 주소입니다.|
 | price | 상품의 가격입니다.                  |
 
+#### 예시
+
+```json
+{
+    "name": "새우깡",
+    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+    "price": 2000
+}
+```
+
 
 #### product/:id (PUT)
 
@@ -38,6 +48,16 @@
 | name  | 상품의 이름입니다.                  |
 | image | 상품의 이미지가 담긴 url 주소입니다.|
 | price | 상품의 가격입니다.                  |
+
+#### 예시
+
+```json
+{
+    "name": "새우깡",
+    "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+    "price": 2000
+}
+```
 
 
 #### product/:id (DELETE)
