@@ -49,7 +49,7 @@
     | image | 상품의 이미지가 담긴 url 주소입니다.| String |
     | price | 상품의 가격입니다.                  | Number |
 
-#### 예시
+- #### 예시
 
 ```json
 {
