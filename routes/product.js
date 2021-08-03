@@ -49,8 +49,8 @@ router.put('/:id', (req, res, next) => {
 });
 
 // delete product
-router.delete('/', (req, res, next) => {
-    Products.findOneAndDelete({ _id: req.body.id }, (err, product) => {
+router.delete('/:id', (req, res, next) => {
+    Products.findOneAndDelete({ _id: req.params.id }, (err, product) => {
         if (err)
             return res.status(500).send(err);
 
