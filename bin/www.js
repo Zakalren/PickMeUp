@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('pickmeup:server');
-var http = require('http');
+import app from '../app'
+import dbg from 'debug'
+import http from 'http'
+
+var debug = dbg('pickmeup:server');
 
 /**
  * Get port from environment and store in Express.

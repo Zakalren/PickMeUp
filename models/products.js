@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.ObjectId;
 
-module.exports = mongoose.model('Products', new Schema({
+const productsSchema = new Schema({
     name: String,
     image: String,
-    price: Number,
-    registeredAt: { type: Date, default: Date.now }
+    price: Number
 }, {
     versionKey: false
-}));
+});
+
+const model = mongoose.model('Products', productsSchema);
+export default model;

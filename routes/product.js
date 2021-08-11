@@ -1,10 +1,10 @@
-const express = require('express');
+import express from 'express'
+import Products from '../models/products'
+
 const router = express.Router();
 
-const Products = require('../models/products');
-
 // create product
-router.post('/', (req, res, next) => {
+router.post('/add', (req, res, next) => {
     const { name, image, price } = req.body;
     const products = new Products({
         name: name,
@@ -20,12 +20,15 @@ router.post('/', (req, res, next) => {
 // view product
 router.get('/:id', (req, res, next) => {
     Products.findById(req.params.id, (err, product) => {
-        res.json(product);
+        if (err)
+            return res.status(500).send(err);
+
+        return res.json(product);
     });
 });
 
 // update product
-router.put('/:id', (req, res, next) => {
+router.put('/update/:id', (req, res, next) => {
     let name, image, price;
 
     Products.findById(req.params.id, (err, product) => {
@@ -49,7 +52,7 @@ router.put('/:id', (req, res, next) => {
 });
 
 // delete product
-router.delete('/:id', (req, res, next) => {
+router.delete('/delete/:id', (req, res, next) => {
     Products.findOneAndDelete({ _id: req.params.id }, (err, product) => {
         if (err)
             return res.status(500).send(err);
@@ -58,4 +61,4 @@ router.delete('/:id', (req, res, next) => {
     });
 });
 
-module.exports = router;
+export default router;
