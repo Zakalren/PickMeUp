@@ -47,6 +47,8 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
 - #### product/list (GET)
 
     > 상품 리스트를 가져옵니다.
+    >
+    > Product 배열 형식을 반환합니다.
 
 - #### product/:id (GET)
 
