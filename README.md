@@ -35,12 +35,12 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
 
     | 인자 | 설명 | 타입 |
     | ---- | ---- | --- |
-    | service_number  | 군번 입니다.                  | String |
-    | name            | 이름 입니다.                  | String |
-    | affiliated_unit | 소속 부대입니다.              | String |
-    | rank            | 현재 계급 입니다.             | String |
-    | date_of_birth   | 생년월일 입니다.              | Date   |
-    | tel_number      | 전화번호 입니다.              | String |
+    | service_number  | 군번입니다.                  | String |
+    | name            | 이름입니다.                  | String |
+    | affiliated_unit | 소속부대입니다.              | String |
+    | rank            | 현재 계급입니다.             | String |
+    | date_of_birth   | 생년월일입니다.              | Date   |
+    | tel_number      | 전화번호입니다.              | String |
 
 ## Method
 
