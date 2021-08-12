@@ -33,6 +33,11 @@ router.post('/signin', passport.authenticate('local', {
     failureRedirect: '/signin'
 }));
 
+router.post('/signout', (req, res, next) => {
+    req.logout();
+    res.redirect('/');
+})
+
 router.get('/me', (req, res, next) => {
     res.json(req.user);
 });
