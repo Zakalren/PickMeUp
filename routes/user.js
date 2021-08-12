@@ -4,6 +4,7 @@ import User from '../models/users'
 
 const router = express.Router();
 
+// Sign-up
 router.post('/signup', async (req, res, next) => {
     const { service_number, password, name, affiliated_unit, rank, date_of_birth, tel_number } = req.body;
 
@@ -20,16 +21,19 @@ router.post('/signup', async (req, res, next) => {
     }
 });
 
+// Sign-in
 router.post('/signin', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin'
 }));
 
+// Sign-out
 router.post('/signout', (req, res, next) => {
     req.logout();
     res.redirect('/');
 })
 
+// Get current profile
 router.get('/me', (req, res, next) => {
     res.json(req.user);
 });

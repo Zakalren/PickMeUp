@@ -3,6 +3,13 @@ import Products from '../models/products'
 
 const router = express.Router();
 
+// get products list
+router.get('/list', (req, res, next) => {
+    Products.find({}, (err, products) => {
+        res.json(products);
+    });
+});
+
 // create product
 router.post('/add', (req, res, next) => {
     const { name, image, price } = req.body;
