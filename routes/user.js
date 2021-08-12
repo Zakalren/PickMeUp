@@ -4,10 +4,6 @@ import User from '../models/users'
 
 const router = express.Router();
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup');
-});
-
 router.post('/signup', async (req, res, next) => {
     const { service_number, password, name, affiliated_unit, rank, date_of_birth, tel_number } = req.body;
 
@@ -22,10 +18,6 @@ router.post('/signup', async (req, res, next) => {
         console.log(error);
         res.redirect('/');
     }
-});
-
-router.get('/signin', (req, res, next) => {
-    res.render('signin');
 });
 
 router.post('/signin', passport.authenticate('local', {
