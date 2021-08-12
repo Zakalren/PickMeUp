@@ -9,10 +9,10 @@
 
 url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디를 나타냅니다.
 
-## Data
+## Data (Json)
 
 - #### Product
-    > 상품 데이터입니다. (JSON)
+    > 상품 데이터입니다.
 
     | 인자 | 설명 | 타입 |
     | ---- | ---- | --- |
@@ -29,6 +29,18 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
         "price": 2000
     }
     ```
+
+- #### User
+    > 사용자 데이터입니다.
+
+    | 인자 | 설명 | 타입 |
+    | ---- | ---- | --- |
+    | service_number  | 군번 입니다.                  | String |
+    | name            | 이름 입니다.                  | String |
+    | affiliated_unit | 소속 부대입니다.              | String |
+    | rank            | 현재 계급 입니다.             | String |
+    | date_of_birth   | 생년월일 입니다.              | Date   |
+    | tel_number      | 전화번호 입니다.              | String |
 
 ## Method
 
@@ -55,3 +67,15 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
 - #### product/delete/:id (DELETE)
 
     > 상품을 삭제합니다.
+
+- #### user/signup (POST)
+
+    > 신규 유저를 회원가입 시킵니다.
+    >
+    > User 형식에 더해 password(String)을 인자로 받습니다.
+
+- #### user/signin (POST)
+
+    > 유저를 로그인 시킵니다.
+    >
+    > User 형식에 더해 password(String)을 인자로 받습니다.
