@@ -42,7 +42,7 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
     | date_of_birth   | 생년월일입니다.              | Date   |
     | tel_number      | 전화번호입니다.              | String |
 
-## Method
+## Method (REST)
 
 - #### product/list (GET)
 
