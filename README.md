@@ -56,14 +56,14 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
         "tel_number": "01012345678"
         "shopping_basket": [
             {
-                "id": "61151b0cb063da7d94d3c7d0"
+                "id": "61151b0cb063da7d94d3c7d0",
                 "name": "새우깡",
                 "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
                 "price": 2000,
                 "amount": 1
             },
             {
-                "id": "21b5150cb063da7d94d12345"
+                "id": "21b5150cb063da7d94d12345",
                 "name": "감자깡",
                 "image": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2016/04/12/3000100687/cd6e296b-ed92-4903-8dec-4d043df1347b.jpg",
                 "price": 2000,
