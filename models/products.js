@@ -6,7 +6,8 @@ const ObjectId = mongoose.ObjectId;
 const productsSchema = new Schema({
     name: String,
     image: String,
-    price: Number
+    price: Number,
+    category: String
 }, {
     versionKey: false
 });

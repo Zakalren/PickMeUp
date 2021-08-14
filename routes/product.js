@@ -6,7 +6,10 @@ const router = express.Router();
 // get products list
 router.get('/list', (req, res, next) => {
     Products.find({}, (err, products) => {
-        res.json(products);
+        if (err)
+            return res.status(500).send(err);
+
+        return res.json(products);
     });
 });
 
@@ -20,7 +23,10 @@ router.post('/add', (req, res, next) => {
     });
 
     products.save((err, product) => {
-        res.json(product);
+        if (err)
+            return res.status(500).send(err);
+
+        return res.json(product);
     });
 });
 
@@ -36,20 +42,25 @@ router.get('/:id', (req, res, next) => {
 
 // update product
 router.put('/update/:id', (req, res, next) => {
-    let name, image, price;
+    let name, image, price, category;
 
     Products.findById(req.params.id, (err, product) => {
-        name, image, price = product;
+        if (err)
+            return res.status(500).send(err);
+
+        name, image, price, category = product;
     });
 
     name = req.body.name ? req.body.name : name;
     image = req.body.image ? req.body.image : image;
     price = req.body.price ? req.body.price : price;
+    category = req.body.category ? req.body.category : category;
 
     Products.findOneAndUpdate({ _id: req.params.id }, {
         name: name,
         image: image,
-        price: price
+        price: price,
+        category: category
     }, (err, product) => {
         if (err)
             return res.status(500).send(err);
