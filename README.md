@@ -16,15 +16,17 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
 
     | 인자 | 설명 | 타입 |
     | ---- | ---- | --- |
+    | id       | 상품이 가진 고유 id입니다.          | String |
     | name     | 상품의 이름입니다.                  | String |
     | image    | 상품의 이미지가 담긴 url 주소입니다. | String |
-    | price    | 상품의 가격입니다.                  | Number |
+    | price    | 상품의 가격입니다.                  | Number | 
     | category | 상품의 분류입니다.                  | String |
 
     #### 예시
 
     ```json
     {
+        "id": "61151b0cb063da7d94d3c7d0"
         "name": "새우깡",
         "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
         "price": 2000
@@ -42,6 +44,7 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
     | rank            | 현재 계급입니다.             | String |
     | date_of_birth   | 생년월일입니다.              | Date   |
     | tel_number      | 전화번호입니다.              | String |
+    | shopping_basket | 장바구니입니다.              | Array  |
 
     ```json
     {
@@ -51,6 +54,22 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
         "rank": "이등병",
         "date_of_birth": "1999-01-01",
         "tel_number": "01012345678"
+        "shopping_basket": [
+            {
+                "id": "61151b0cb063da7d94d3c7d0"
+                "name": "새우깡",
+                "image": "http://timg.danawa.com/prod_img/500000/951/529/img/1529951_1.jpg",
+                "price": 2000,
+                "amount": 1
+            },
+            {
+                "id": "21b5150cb063da7d94d12345"
+                "name": "감자깡",
+                "image": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2016/04/12/3000100687/cd6e296b-ed92-4903-8dec-4d043df1347b.jpg",
+                "price": 2000,
+                "amount": 2
+            }
+        ]
     }
     ```
 
