@@ -39,7 +39,7 @@ url에 포함되어 있는 :id 는 상품이 가지고 있는 고유 아이디�
 
     | 인자 | 설명 | 타입 |
     | ---- | ---- | --- |
-    | _id             | 유저 아이디 겸 군번입니다.    | String |
+    | service_number  | 유저 아이디 겸 군번입니다.    | String |
     | name            | 이름입니다.                  | String |
     | affiliated_unit | 소속부대입니다.              | String |
     | rank            | 현재 계급입니다.             | String |
