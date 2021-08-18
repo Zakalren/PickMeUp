@@ -18,6 +18,7 @@ import './db'
 import indexRouter from './routes/index'
 import productRouter from './routes/product'
 import userRouter from './routes/user'
+import paymentsRouter from './routes/payments'
 
 const app = express();
 
@@ -47,7 +48,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/product', productRouter);
 app.use('/user', userRouter);
-//app.use('/payments', paymentsRouter);
+app.use('/payments', paymentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
