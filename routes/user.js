@@ -62,7 +62,7 @@ router.post('/add_to_basket', (req, res, next) => {
         let basket = req.user.shopping_basket;
         basket.push(product);
 
-        Users.findOneAndUpdate({ _id: req.user._id }, {
+        Users.findByIdAndUpdate(req.user._id, {
             shopping_basket: basket
         }, (err, user) => {
             if (err)
@@ -80,7 +80,7 @@ router.post('/update_basket', (req, res, next) => {
 
     let basket = req.body.basket;
 
-    Users.findOneAndUpdate({ _id: req.user._id }, {
+    Users.findByIdAndUpdate(req.user._id, {
         shopping_basket: basket
     }, (err, user) => {
         if (err)

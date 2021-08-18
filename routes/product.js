@@ -58,7 +58,7 @@ router.put('/update/:id', (req, res, next) => {
     price = req.body.price ? req.body.price : price;
     category = req.body.category ? req.body.category : category;
 
-    Products.findOneAndUpdate({ _id: req.params.id }, {
+    Products.findByIdAndUpdate(req.params.id, {
         name: name,
         image: image,
         price: price,
@@ -73,7 +73,7 @@ router.put('/update/:id', (req, res, next) => {
 
 // delete product
 router.delete('/delete/:id', (req, res, next) => {
-    Products.findOneAndDelete({ _id: req.params.id }, (err, product) => {
+    Products.findByIdAndDelete(req.params.id, (err, product) => {
         if (err)
             return res.status(500).send(err);
 
