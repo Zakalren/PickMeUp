@@ -4,10 +4,23 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.ObjectId;
 
 const productsSchema = new Schema({
-    name: String,
-    image: String,
-    price: Number,
-    category: String
+    name: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    amount: Number,
 }, {
     versionKey: false
 });

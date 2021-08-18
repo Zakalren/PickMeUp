@@ -1,5 +1,6 @@
 import express from 'express'
 import Products from '../models/products'
+import Users from '../models/users'
 
 const router = express.Router();
 
@@ -14,12 +15,13 @@ router.get('/list', (req, res, next) => {
 });
 
 // create product
-router.post('/add', (req, res, next) => {
-    const { name, image, price } = req.body;
+router.post('/create', (req, res, next) => {
+    const { name, image, price, category } = req.body;
     const products = new Products({
         name: name,
         image: image,
-        price: price
+        price: price,
+        category: category
     });
 
     products.save((err, product) => {
