@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
+import config from './config'
 
-mongoose.connect('mongodb://localhost:27017/pickmeup', {
+mongoose.connect(config.db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

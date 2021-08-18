@@ -4,7 +4,7 @@ import axios from 'axios'
 const router = express.Router();
 
 // called when the payment is complete.
-router.post('/complete', (req, res, next) => {
+router.post('/complete', async (req, res, next) => {
     try {
         const { imp_uid, merchant_uid } = req.body;
 
