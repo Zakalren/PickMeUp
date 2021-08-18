@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const router = express.Router();
 
+// called when the payment is complete.
 router.post('/complete', (req, res, next) => {
     try {
         const { imp_uid, merchant_uid } = req.body;
@@ -12,8 +13,8 @@ router.post('/complete', (req, res, next) => {
             method: 'post',
             headers: { 'Content-Type': 'applications/json' },
             data: {
-                imp_key: 'imp_apikey',
-                imp_secret: 'secret'
+                imp_key: 'imp_apikey', // api key
+                imp_secret: 'secret' // secret key
             }
         });
 
@@ -36,7 +37,7 @@ router.post('/complete', (req, res, next) => {
 
             switch (status) {
                 case 'paid':
-                    res.send('payment success')
+                    res.send('결제 성공');
                     break;
             }
         }
