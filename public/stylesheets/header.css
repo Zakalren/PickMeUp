@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 130px;
+	margin-bottom: 30px;
+}
+
+.header__logo {
+	background-color: #90cfea;
+	background-image: url(../images/main_logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 100px;
+	margin-bottom: 2px;
+}
+
+.menu-type-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #ccdbf2;
+	height: 35px;
+	margin-bottom: 2px;
+}
+
+.menu-type-list__menu-type {
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 15px;
+	width: 100px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}

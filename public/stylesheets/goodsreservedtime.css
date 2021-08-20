@@ -1,0 +1,123 @@
+.goodsreservedtime--main-content {
+	width: 100%;
+	height: 560px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.main-content--left-column {
+	width: 500px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.main-content--left-top {
+	width: 100%;
+	height: 270px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.main-content--left-bottom {
+	width: 100%;
+	height: 270px;
+}
+
+
+.main-content--avatar {
+	width: 240px;
+	height: 100%;
+	background-image: url(../images/avatar.png);
+	border: 5px solid black;
+}
+
+
+.main-content--information {
+	width: 240px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	border: 5px solid black;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.information__name, .information__ordered-time,
+.information__reserved-time, .information__total-price {
+	display: flex;
+	flex-direction: row;
+}
+
+
+.main-content--caution {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	padding: 20px;
+	border: 5px solid black;
+	font-size: 25px;
+}
+
+
+.caution__header {
+	width: 100%;
+	height: 30px;
+}
+
+
+.caution__caution-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.main-content--right-column {
+	width: 500px;
+	height: 100%;
+}
+
+
+.main-content--purchase-list {
+	width: 100%;
+	height: 100%;
+	border: 5px solid black;
+	overflow-y: scroll;
+	padding: 10px;
+	font-size: 25px;
+}
+
+
+.purchase-list__header {
+	width: 100%;
+	height: 30px;
+}
+
+.purchase-list__list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+.purchase-list__item {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}

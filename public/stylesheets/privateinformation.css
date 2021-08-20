@@ -1,0 +1,83 @@
+.privateinformation--information {
+	width: 100%;
+	height: 584px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.content-box {
+	border: 5px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.information__row1 {
+	width: 100%;
+	height: 240px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.information__avatar {
+	width: 210px;
+	height: 100%;
+	background-image: url(../images/avatar.png);
+}
+
+.information__row1__right-column {
+	width: 460px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.information__row1__row1, .information__row1__row2,
+.information__row1__row3 {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.information__row-wrapper {
+	width: 100%;
+	height: 240px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.information__name, .information__class,
+.information__serial-number, .information__birth-date {
+	width: 180px;
+	height: 100%;
+}
+
+.information__account-link-information {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.information__mobile-phone-number, .information__organization,
+.information__information-modify {
+	width: 460px;
+	height: 60px;
+}
+
+
+.information__information-modify {
+	background-image: url(../images/private_information_modify.png);
+	cursor: pointer;
+}

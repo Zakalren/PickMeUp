@@ -1,0 +1,69 @@
+.informationmodify__main-content {
+	width: 100%;
+	height: 584px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.main-content-wrapper {
+	width: 100%;
+	height: 325px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.content-box {
+	border: 5px solid black;
+	font-size: 25px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.informationmodify__left-column {
+	width: 260px;
+	height: 100%;
+}
+
+.informationmodify--change-avatar {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.change-avatar__image {
+	width: 135px;
+	height: 130px;
+	background-image: url(../images/change_avatar.png);
+	margin-bottom: 20px;
+}
+
+.informationmodify__right-column {
+	width: 435px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.informationmodify--password-change,
+.informationmodify--mobile-phone-number-change,
+.informationmodify--account-link-change {
+	width: 100%;
+	height: 65px;
+	cursor: pointer;
+}
+
+.informationmodify--account-link-change {
+	background-image: url(../images/account_link_change.png);
+}
