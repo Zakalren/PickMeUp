@@ -22,11 +22,19 @@ router.post('/signup', async (req, res, next) => {
     }
 });
 
+router.get('/signup', (req, res, next) => {
+    res.render('signup');
+});
+
 // Sign-in
 router.post('/signin', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin'
 }));
+
+router.get('/signin', (req, res, next) => {
+    res.render('signin');
+});
 
 // Sign-out
 router.get('/signout', (req, res, next) => {
