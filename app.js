@@ -7,6 +7,7 @@ import logger from 'morgan'
 import mongoose from 'mongoose'
 import connectMongo from 'connect-mongo'
 import passport from 'passport'
+import cors from 'cors'
 
 // passport
 import './passport'
@@ -40,6 +41,7 @@ app.use(session({
   store: MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
