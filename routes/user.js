@@ -33,6 +33,9 @@ router.post('/signin', passport.authenticate('local', {
 }));
 
 router.get('/signin', (req, res, next) => {
+    if (req.user)
+        return res.status(500).send('already signed');
+
     res.render('signin');
 });
 
@@ -53,6 +56,13 @@ router.get('/me', (req, res, next) => {
     res.json(req.user);
 });
 
+router.get('/basket', (req, res, next) => {
+    if (!req.user)
+        return res.status(500).send('login first');
+
+    res.render('shoppingbasket', { basket: req.user.shopping_basket });
+});
+
 // add to basket
 router.post('/add_to_basket', (req, res, next) => {
     if (!req.user)
@@ -70,7 +80,7 @@ router.post('/add_to_basket', (req, res, next) => {
         let basket = req.user.shopping_basket;
         basket.push(product);
 
-        Users.findByIdAndUpdate(req.user._id, {
+        User.findByIdAndUpdate(req.user._id, {
             shopping_basket: basket
         }, (err, user) => {
             if (err)
@@ -88,7 +98,7 @@ router.post('/update_basket', (req, res, next) => {
 
     let basket = req.body.basket;
 
-    Users.findByIdAndUpdate(req.user._id, {
+    User.findByIdAndUpdate(req.user._id, {
         shopping_basket: basket
     }, (err, user) => {
         if (err)
