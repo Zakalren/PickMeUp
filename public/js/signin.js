@@ -9,7 +9,7 @@ function submitEventHandler(event) {
 
 	event.preventDefault();
 
-	$.post('http://localhost:3000/user/signin', {
+	$.post('/user/signin', {
 		service_number: service_number,
 		password: password
 	},
