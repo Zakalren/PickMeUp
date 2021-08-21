@@ -9,6 +9,9 @@
 	<link href="/css/header.css" rel="stylesheet" />
 	<link href="/css/shoppingbasket.css" rel="stylesheet" />
 	<link href="/css/menutitle.css" rel="stylesheet" />
+	<script type="text/javascript">
+		var basket = JSON.parse('<%-JSON.stringify(basket)%>');
+	</script>
 </head>
 
 <body>
@@ -31,25 +34,27 @@
 					</div>
 				</div>
 				<ul class="listbox__list shopping-list">
-					<% basket.forEach(function(product) { %>
-						<li class="shopping-list-item">
-							<div class="shopping-list-item-main">
-								-
-								<span class="shopping-list-item-name">
-									<%- product.name %>
-								</span>
-								x
-								<span class="shopping-list-item-count">
-									<%- product.amount %>
-								</span>
-								:
-								<span class="shopping-list-item-price">
-									<%- product.price * product.amount %>
-								</span>원
-							</div>
-							<button class="shopping-list-item__delete-button image"></button>
-						</li>
-						<% }); %>
+					<% for (let i=0; i < basket.length; i++) {%>
+						<% const product=basket[i]; %>
+							<li class="shopping-list-item">
+								<div class="shopping-list-item-main">
+									-
+									<span class="shopping-list-item-name">
+										<%- product.name %>
+									</span>
+									x
+									<span class="shopping-list-item-count">
+										<%- product.amount %>
+									</span>
+									:
+									<span class="shopping-list-item-price">
+										<%- product.price * product.amount %>
+									</span>원
+								</div>
+								<button class="shopping-list-item__delete-button image"
+									onclick="deleteProducts(<%-i%>);"></button>
+							</li>
+							<% } %>
 				</ul>
 			</div>
 			<div class="main-content__right-column">
@@ -105,6 +110,9 @@
 			<button class="shoppingbag--purchase-button image"></button>
 		</div>
 	</main>
+
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/shoppingbasket.js"></script>
 </body>
 
 </html>

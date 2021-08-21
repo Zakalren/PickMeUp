@@ -96,7 +96,8 @@ router.post('/update_basket', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');
 
-    let basket = req.body.basket;
+    let basket = JSON.parse(req.body.basket);
+    console.log(basket);
 
     User.findByIdAndUpdate(req.user._id, {
         shopping_basket: basket
