@@ -130,14 +130,19 @@ router.post('/add_to_basket', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');
 
-    Products.findById(req.body.id, (err, product) => {
+    const { id, amount } = req.body;
+
+    Products.findById(id, (err, product) => {
         if (err)
             return res.status(500).send(err);
 
         if (!product)
             return res.status(500).send('invalid product id');
 
-        product.amount = req.body.amount;
+        if (isNaN(amount) || !amount || amount < 1)
+            return res.status(500).send('invalid amount');
+
+        product.amount = amount;
 
         let basket = req.user.shopping_basket;
         basket.push(product);

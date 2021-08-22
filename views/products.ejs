@@ -8,11 +8,17 @@
 	<link href="/css/styles.css" rel="stylesheet" />
 	<link href="/css/header.css" rel="stylesheet" />
 	<link href="/css/menu.css" rel="stylesheet" />
+	<script type="text/javascript">
+		var signed = false;
+		<% if (user) {%>
+			signed = true;
+			<% }%>
+	</script>
 </head>
 
 <body>
 	<header class="header">
-		<a class="header__hompage-link" href="index.html">
+		<a class="header__hompage-link" href="/">
 			<div class="header__logo"></div>
 		</a>
 		<nav class="header__nav nav">

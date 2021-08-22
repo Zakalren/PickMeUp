@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>언택트 BX</title>
+	<link href="/css/styles.css" rel="stylesheet" />
+	<link href="/css/header.css" rel="stylesheet" />
+	<link href="/css/selectproduct.css" rel="stylesheet" />
+	<link href="/css/menutitle.css" rel="stylesheet" />
+	<script type="text/javascript">
+		var signed = false;
+			<% if (user) {%>
+			signed = true;
+				<% }%>
+	</script>
+</head>
+
+<body>
+	<header class="header">
+		<a class="header__hompage-link" href="/">
+			<div class="header__logo"></div>
+		</a>
+	</header>
+
+	<main class="selectproduct__main main">
+		<div class="selectproduct__title menu-title">
+			-상품 선택-
+		</div>
+		<div class="selectproduct__main-content">
+			<div class="main-content__product-count">
+				<div class="product-count--product product">
+					<div class="product__product-image image" style="background-image: url(<%-product.image%>);"></div>
+					<div class="product__product-price">
+						<%- product.price %>
+					</div>
+				</div>
+				<div class="product-count__right-column">
+					<div class="product-count--product-name">
+						<%- product.name %>
+					</div>
+					<div class="product-count--count">
+						<div class="count__left-arrow image"></div>
+						<input id="input_amount" class="product-count--count-input" type="number" value="1" />
+						<div class="count__right-arrow image"></div>
+					</div>
+				</div>
+			</div>
+			<div class="selectproduct__button-tab">
+				<div class="button-tab__purchase-button image"
+					onclick="add_to_basket('<%-product._id%>', $('#input_amount').val())"></div>
+				<div class="button-tab__add-shopping-bag-button image"></div>
+			</div>
+			<ul class="selectproduct__navigation-bar">
+				<a class="navigation-bar__product-link" href="selectproduct.html">
+					<li class="navigation-bar__product product">
+						<div class="product__product-image image"></div>
+						<div class="product__product-price">400</div>
+					</li>
+				</a>
+				<a class="navigation-bar__product-link" href="selectproduct.html">
+					<li class="navigation-bar__product product">
+						<div class="product__product-image image"></div>
+						<div class="product__product-price">400</div>
+					</li>
+				</a>
+				<a class="navigation-bar__product-link" href="selectproduct.html">
+					<li class="navigation-bar__product product">
+						<div class="product__product-image image"></div>
+						<div class="product__product-price">400</div>
+					</li>
+				</a>
+				<a class="navigation-bar__product-link" href="selectproduct.html">
+					<li class="navigation-bar__product product">
+						<div class="product__product-image image"></div>
+						<div class="product__product-price">400</div>
+					</li>
+				</a>
+			</ul>
+		</div>
+	</main>
+
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/product.js"></script>
+</body>
+
+</html>

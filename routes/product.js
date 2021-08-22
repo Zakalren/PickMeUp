@@ -19,7 +19,7 @@ router.get('/list/:category', (req, res, next) => {
         if (err)
             return res.status(500).send(err);
 
-        return res.render('products', { category: req.params.category, products: products });
+        return res.render('products', { category: req.params.category, products: products, user: req.isAuthenticated() });
     });
 });
 
@@ -47,7 +47,7 @@ router.get('/:id', (req, res, next) => {
         if (err)
             return res.status(500).send(err);
 
-        return res.json(product);
+        return res.render('product_page', { product: product, user: req.user });
     });
 });
 
