@@ -4,7 +4,7 @@
 	align-items: center;
 }
 
-.regist__main-wrapper {
+.main-wrapper {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -13,7 +13,7 @@
 	align-items: center;
 }
 
-.regist--title {
+.title {
 	width: 550px;
 	height: 40px;
 	display: flex;
@@ -23,7 +23,7 @@
 	font-weight: bold;
 }
 
-[class*='regist__input-row'] {
+[class*='input-row'] {
 	margin-bottom: 5px;
 	width: 800px;
 	height: 100px;
@@ -31,21 +31,21 @@
 	justify-content: space-between;
 }
 
-.regist--input {
+.input-box {
 	width: 350px;
-	height: 100px;
+	height: 80px;
 	border: 4px solid black;
 	border-radius: 15px;
 	padding: 10px;
 	font-size: 20px;
 }
 
-.regist--signup {
+.signup {
 	width: 800px;
 	height: 100px;
 }
 
-.regist--account-link {
+.account-link {
 	width: 800px;
 	height: 100px;
 	background-image: url(../images/account_link.png);

@@ -65,6 +65,13 @@ router.get('/profile', (req, res, next) => {
     res.render('profile', { user: req.user });
 });
 
+router.get('/profile/edit', (req, res, next) => {
+    if (!req.user)
+        return res.status(500).send('login first');
+
+    res.render('edit_profile', { user: req.user });
+})
+
 router.get('/basket', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');

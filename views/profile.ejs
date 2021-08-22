@@ -18,28 +18,28 @@
 		</a>
 	</header>
 
-	<main class="privateinformation__main main">
-		<div class="privateinformation__title menu-title">
+	<main class="main">
+		<div class="menu-title">
 			-개인정보-
 		</div>
-		<div class="privateinformation--information">
-			<div class="information__row1">
-				<div class="information__avatar image content-box" style="background-image: url(<%-user.avatarUrl%>);">
+		<div class="profile">
+			<div class="profile_row1">
+				<div class="avatar image content-box" style="background-image: url(<%-user.avatarUrl%>);">
 				</div>
-				<div class="information__row1__right-column">
-					<div class="information__row1__row1">
-						<div class="information__text content-box">
+				<div class="right-column">
+					<div class="right-column_row1">
+						<div class="text content-box">
 							<%-user.name%>
 						</div>
-						<div class="information__text content-box">
+						<div class="text content-box">
 							<%-user.rank%>
 						</div>
 					</div>
-					<div class="information__row1__row2">
-						<div class="information__text content-box">
+					<div class="right-column_row2">
+						<div class="text content-box">
 							<%-user.service_number%>
 						</div>
-						<div class="information__text content-box">
+						<div class="text content-box">
 							<%let date=user.date_of_birth%>
 								<%let year=date.getFullYear()%>
 									<%let month=date.getMonth() < 9 ? '0' +(date.getMonth()+1) : (date.getMonth()+1)%>
@@ -47,24 +47,25 @@
 											<%-year+'-'+month+'-'+day%>
 						</div>
 					</div>
-					<div class="information__row1__row3">
-						<div class="information__account-link-information content-box">계좌 연동 정보(ibk, kb)</div>
+					<div class="right-column_row3">
+						<div class="account-integration content-box">계좌 연동 정보(ibk, kb)</div>
 					</div>
 				</div>
 			</div>
-			<div class="information__row-wrapper">
-				<div class="information__row2">
-					<div class="information__bottom content-box">
+			<div class="row-wrapper">
+				<div class="profile_row2">
+					<div class="bottom-content content-box">
 						<%-user.tel_number%>
 					</div>
 				</div>
-				<div class="information__row3">
-					<div class="information__bottom content-box">
+				<div class="profile_row3">
+					<div class="bottom-content content-box">
 						<%-user.affiliated_unit%>
 					</div>
 				</div>
-				<div class="information__row4">
-					<button class="information__information-modify information__bottom image"></button>
+				<div class="profile_row4">
+					<button class="edit-profile bottom-content image"
+						onclick="window.location = 'profile/edit'"></button>
 				</div>
 			</div>
 		</div>

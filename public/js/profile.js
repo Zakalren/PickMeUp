@@ -1,7 +1,7 @@
 const informationModifyButton = document.querySelector(".information__information-modify");
 
 function rightPasswordProcess() {
-	location.replace("informationmodify.html");
+	location.replace("profile/edit");
 }
 
 function checkPassword(password) {
@@ -22,7 +22,7 @@ function informationModifyButtonOnClickEventHandler(event) {
 }
 
 function init() {
-	informationModifyButton.addEventListener("click", informationModifyButtonOnClickEventHandler);
+	//informationModifyButton.addEventListener("click", informationModifyButtonOnClickEventHandler);
 }
 
 init();

@@ -1,4 +1,4 @@
-.informationmodify__main-content {
+.main-content {
 	width: 100%;
 	height: 584px;
 	display: flex;
@@ -26,12 +26,12 @@
 	cursor: pointer;
 }
 
-.informationmodify__left-column {
+.left-column {
 	width: 260px;
 	height: 100%;
 }
 
-.informationmodify--change-avatar {
+.change-avatar {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -40,14 +40,14 @@
 	align-items: center;
 }
 
-.change-avatar__image {
+.change-avatar_image {
 	width: 135px;
 	height: 130px;
 	background-image: url(../images/change_avatar.png);
 	margin-bottom: 20px;
 }
 
-.informationmodify__right-column {
+.right-column {
 	width: 435px;
 	height: 100%;
 	display: flex;
@@ -56,14 +56,36 @@
 	align-items: center;
 }
 
-.informationmodify--password-change,
-.informationmodify--mobile-phone-number-change,
-.informationmodify--account-link-change {
+.row-wrapper {
+	width: 100%;
+	height: 240px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+[class*='input-row'] {
+	margin-bottom: 5px;
+	width: 800px;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.modify-input {
 	width: 100%;
 	height: 65px;
 	cursor: pointer;
+	text-align: center;
 }
 
-.informationmodify--account-link-change {
+.content-bottom {
+	width: 650px;
+	height: 60px;
+	margin-left: 80px;
+}
+
+.change-account {
 	background-image: url(../images/account_link_change.png);
 }
