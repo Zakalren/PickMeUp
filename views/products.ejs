@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>언택트 BX</title>
+	<link href="/css/styles.css" rel="stylesheet" />
+	<link href="/css/header.css" rel="stylesheet" />
+	<link href="/css/menu.css" rel="stylesheet" />
+</head>
+
+<body>
+	<header class="header">
+		<a class="header__hompage-link" href="index.html">
+			<div class="header__logo"></div>
+		</a>
+		<nav class="header__nav nav">
+			<ul class="nav__menu-type-list menu-type-list">
+				<a class="menu-type-list__menu-link" href="/product/list/snack">
+					<li class="menu-type-list__menu-type snack">과자류</li>
+				</a>
+				<a class="menu-type-list__menu-link" href="/product/list/icecream">
+					<li class="menu-type-list__menu-type icecream">아이스크림</li>
+				</a>
+				<a class="menu-type-list__menu-link" href="/product/list/essentials">
+					<li class="menu-type-list__menu-type necessary">생활용품</li>
+				</a>
+				<a class="menu-type-list__menu-link" href="/product/list/cosmetics">
+					<li class="menu-type-list__menu-type consmetics">화장품</li>
+				</a>
+				<a class="menu-type-list__menu-link" href="/product/list/dairy">
+					<li class="menu-type-list__menu-type dairy">유제품</li>
+				</a>
+				<a class="menu-type-list__menu-link" href="/product/list/liquors">
+					<li class="menu-type-list__menu-type liquors">주류/담배</li>
+				</a>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="snack__main main menu__main">
+		<ul class="menu__main__items items">
+			<!-- 12 products per page -->
+			<%products.forEach(function(product) {%>
+				<a class="items__link" href="/product/<%-product._id%>">
+					<li class="items__item">
+						<div class="items__item-picture" style="background-image: url(<%-product.image%>);">
+						</div>
+						<div class="items__item-price">
+							<%-product.price%>
+						</div>
+					</li>
+				</a>
+				<%});%>
+		</ul>
+	</main>
+</body>
+
+</html>

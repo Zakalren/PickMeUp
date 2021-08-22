@@ -14,6 +14,15 @@ router.get('/list', (req, res, next) => {
     });
 });
 
+router.get('/list/:category', (req, res, next) => {
+    Products.find({ category: req.params.category }, (err, products) => {
+        if (err)
+            return res.status(500).send(err);
+
+        return res.render('products', { category: req.params.category, products: products });
+    });
+});
+
 // create product
 router.post('/create', (req, res, next) => {
     const { name, image, price, category } = req.body;
