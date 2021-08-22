@@ -8,3 +8,9 @@ function deleteProducts(index) {
             window.location.reload();
     });
 }
+
+var totalPrice = 0;
+basket.forEach(function (product) {
+    totalPrice += product.price * product.amount;
+});
+$('.total-cost__number').text(totalPrice + ' ');
