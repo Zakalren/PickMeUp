@@ -10,12 +10,12 @@ let loginedProfileSection = [
 
 let unloginedProfileSection = [document.querySelector(".logined-user__unlogined")];
 
-let user = null;
 
-
-const VIEW_FILTER_CLASS = "unvisible";
+const VIEW_FILTER_CLASS = "invisible";
 
 function showUserData() {
+	if (user.avatarUrl)
+		loginedProfileSection[0].style.backgroundImage = `url(${user.avatarUrl})`;
 	loginedProfileSection[3].innerText = user.name;
 	loginedProfileSection[5].innerText = user.service_number;
 }
@@ -31,15 +31,21 @@ function viewController(hideArray, showArray) {
 }
 
 function checkLogIn() {
-	ajaxTemplate('GET', '/user/me', null, function() {}, function(responseText) {
-		user = JSON.parse(responseText);
+	let result = false;
+
+	$.ajax({
+		type: 'get',
+		url: '/user/profile',
+		success: function (data) {
+			result = true;
+		},
+		error: function (err) {
+			result = false;
+		},
+		async: false
 	});
 
-	if (user !== null) {
-		return true;
-	} else {
-		return false;
-	}
+	return result;
 }
 
 function showScreen() {

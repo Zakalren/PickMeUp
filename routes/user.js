@@ -58,11 +58,11 @@ router.get('/signout', (req, res, next) => {
 })
 
 // Get current profile
-router.get('/me', (req, res, next) => {
+router.get('/profile', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');
 
-    res.json(req.user);
+    res.render('profile', { user: req.user });
 });
 
 router.get('/basket', (req, res, next) => {

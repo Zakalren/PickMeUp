@@ -12,8 +12,6 @@ function checkPassword(password) {
 	rightPasswordProcess();
 }
 
-
-
 function informationModifyButtonOnClickEventHandler(event) {
 	event.preventDefault();
 	const accept = confirm("개인정보를 변경하시겠습니까?");

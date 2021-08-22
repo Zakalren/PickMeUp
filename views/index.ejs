@@ -8,6 +8,9 @@
 	<link href="/css/styles.css" rel="stylesheet" />
 	<link href="/css/header.css" rel="stylesheet" />
 	<link href="/css/index.css" rel="stylesheet" />
+	<script type="text/javascript">
+		var user = JSON.parse('<%-JSON.stringify(user)%>');
+	</script>
 </head>
 
 <body>
@@ -72,34 +75,25 @@
 					<a class="shopping-bag__link" href="/user/shopping_basket">● 장바구니</a>
 				</div>
 				<ul class="shopping-bag__selected-menu-list selected-menu-list">
-					<li class="selected-menu-list__selected-menu selected-menu">
-						-
-						<span class="selected-menu__menu-name">간장치킨
-						</span>
-						:
-						<span class="selected-menu__menu-price">1800</span>원
-					</li>
-					<li class="selected-menu-list__selected-menu selected-menu">
-						-
-						<span class="selected-menu__menu-name">콜라
-						</span>
-						:
-						<span class="selected-menu__menu-price">1200</span>원
-					</li>
-					<li class="selected-menu-list__selected-menu selected-menu">
-						-
-						<span class="selected-menu__menu-name">이클립스
-						</span>
-						:
-						<span class="selected-menu__menu-price">1100</span>원
-					</li>
-					<li class="selected-menu-list__selected-menu selected-menu">
-						-
-						<span class="selected-menu__menu-name">황금 밥알
-						</span>
-						:
-						<span class="selected-menu__menu-price">3000</span>원
-					</li>
+					<% if (user) {%>
+						<% user.shopping_basket.forEach(function(product) {%>
+							<li class="selected-menu-list__selected-menu selected-menu">
+								<div class="shopping-list-item-main">
+									-
+									<span class="selected-menu__menu-name">
+										<%- product.name %>
+									</span>
+									x
+									<span class="selected-menu__menu-amount">
+										<%- product.amount %>
+									</span>
+									:
+									<span class="selected-menu__menu-price">
+										<%- product.price * product.amount %>
+									</span>원
+								</div>
+							</li>
+							<% });} %>
 				</ul>
 			</div>
 			<div class="main__customer-center customer-center main-border">
@@ -213,6 +207,7 @@
 		</div>
 	</main>
 
+	<script src="/js/jquery-3.6.0.min.js"></script>
 	<script src="/js/index.js"></script>
 </body>
 

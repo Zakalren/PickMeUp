@@ -24,15 +24,24 @@
 		</div>
 		<div class="privateinformation--information">
 			<div class="information__row1">
-				<div class="information__avatar image content-box"></div>
+				<div class="information__avatar image content-box" style="background-image: url(<%-user.avatarUrl%>);">
+				</div>
 				<div class="information__row1__right-column">
 					<div class="information__row1__row1">
-						<div class="information__name content-box">이름</div>
-						<div class="information__class content-box">계급</div>
+						<div class="information__text content-box">
+							<%-user.name%>
+						</div>
+						<div class="information__text content-box">
+							<%-user.rank%>
+						</div>
 					</div>
 					<div class="information__row1__row2">
-						<div class="information__serial-number content-box">군번</div>
-						<div class="information__birth-date content-box">생년월일</div>
+						<div class="information__text content-box">
+							<%-user.service_number%>
+						</div>
+						<div class="information__text content-box">
+							<%-user.date_of_birth%>
+						</div>
 					</div>
 					<div class="information__row1__row3">
 						<div class="information__account-link-information content-box">계좌 연동 정보(ibk, kb)</div>
@@ -41,19 +50,23 @@
 			</div>
 			<div class="information__row-wrapper">
 				<div class="information__row2">
-					<div class="information__mobile-phone-number content-box">핸드폰 번호</div>
+					<div class="information__bottom content-box">
+						<%-user.tel_number%>
+					</div>
 				</div>
 				<div class="information__row3">
-					<div class="information__organization content-box">조직</div>
+					<div class="information__bottom content-box">
+						<%-user.affiliated_unit%>
+					</div>
 				</div>
 				<div class="information__row4">
-					<button class="information__information-modify image"></button>
+					<button class="information__information-modify information__bottom image"></button>
 				</div>
 			</div>
 		</div>
 	</main>
 
-	<script src="js/profile.js"></script>
+	<script src="/js/profile.js"></script>
 </body>
 
 </html>
