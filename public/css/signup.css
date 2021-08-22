@@ -23,15 +23,15 @@
 	font-weight: bold;
 }
 
-.regist__input-row-1, .regist__input-row-2 {
+[class*='regist__input-row'] {
+	margin-bottom: 5px;
 	width: 800px;
 	height: 100px;
 	display: flex;
 	justify-content: space-between;
 }
 
-.regist--name, .regist--id,
-.regist--password, .regist--password-check {
+.regist--input {
 	width: 350px;
 	height: 100px;
 	border: 4px solid black;

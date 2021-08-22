@@ -7,14 +7,20 @@ const router = express.Router();
 
 // Sign-up
 router.post('/signup', async (req, res, next) => {
-    const { service_number, password, name, affiliated_unit, rank, date_of_birth, tel_number } = req.body;
+    const { service_number, password, password_check, name, affiliated_unit, rank, date_of_birth, tel_number } = req.body;
+
+    if (password != password_check)
+        return res.status(500).send('password and password check are not same');
 
     try {
         const user = await User({ service_number, name, affiliated_unit, rank, date_of_birth, tel_number });
 
         await User.register(user, password);
 
-        res.redirect('/');
+        passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/user/signin'
+        })(req, res, next);
     }
     catch (err) {
         console.log(err);
