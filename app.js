@@ -20,6 +20,7 @@ import indexRouter from './routes/index'
 import productRouter from './routes/product'
 import userRouter from './routes/user'
 import paymentsRouter from './routes/payments'
+import uploadRouter from './routes/upload'
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use('/', indexRouter);
 app.use('/product', productRouter);
 app.use('/user', userRouter);
 app.use('/payments', paymentsRouter);
+app.use('/upload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

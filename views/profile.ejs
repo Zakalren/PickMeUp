@@ -43,7 +43,7 @@
 							<%let date=user.date_of_birth%>
 								<%let year=date.getFullYear()%>
 									<%let month=date.getMonth() < 9 ? '0' +(date.getMonth()+1) : (date.getMonth()+1)%>
-										<%let day=date.getDate() < 10 ? '0' +(date.getDate()+1) : (date.getDate()+1)%>
+										<%let day=date.getDate() < 10 ? '0' + date.getDate() : date.getDate()%>
 											<%-year+'-'+month+'-'+day%>
 						</div>
 					</div>

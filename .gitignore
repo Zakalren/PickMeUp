@@ -5,6 +5,9 @@
 # config
 config.js
 
+# avatar files
+public/images/avatar
+
 ### Node ###
 # Logs
 logs

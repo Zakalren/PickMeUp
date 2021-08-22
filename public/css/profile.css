@@ -39,7 +39,7 @@
 	align-items: center;
 }
 
-[class*='right-column-row'] {
+[class*='right-column_row'] {
 	width: 100%;
 	height: 60px;
 	display: flex;
