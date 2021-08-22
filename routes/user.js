@@ -23,13 +23,16 @@ router.post('/signup', async (req, res, next) => {
 });
 
 router.get('/signup', (req, res, next) => {
+    if (req.user)
+        return res.status(500).send('already signed');
+
     res.render('signup');
 });
 
 // Sign-in
 router.post('/signin', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/signin'
+    failureRedirect: '/user/signin'
 }));
 
 router.get('/signin', (req, res, next) => {
