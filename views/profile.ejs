@@ -40,7 +40,11 @@
 							<%-user.service_number%>
 						</div>
 						<div class="information__text content-box">
-							<%-user.date_of_birth%>
+							<%let date=user.date_of_birth%>
+								<%let year=date.getFullYear()%>
+									<%let month=date.getMonth() < 9 ? '0' +(date.getMonth()+1) : (date.getMonth()+1)%>
+										<%let day=date.getDate() < 10 ? '0' +(date.getDate()+1) : (date.getDate()+1)%>
+											<%-year+'-'+month+'-'+day%>
 						</div>
 					</div>
 					<div class="information__row1__row3">
