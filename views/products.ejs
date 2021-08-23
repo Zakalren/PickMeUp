@@ -8,12 +8,6 @@
 	<link href="/css/styles.css" rel="stylesheet" />
 	<link href="/css/header.css" rel="stylesheet" />
 	<link href="/css/menu.css" rel="stylesheet" />
-	<script type="text/javascript">
-		var signed = false;
-		<% if (user) {%>
-			signed = true;
-			<% }%>
-	</script>
 </head>
 
 <body>
@@ -51,10 +45,11 @@
 			<%products.forEach(function(product) {%>
 				<a class="items__link" href="/product/<%-product._id%>">
 					<li class="items__item">
-						<div class="items__item-picture" style="background-image: url(<%-product.image%>);">
+						<div class="items__item-picture"
+							style="background-image: url(<%-product.image%>); background-size: 100%;">
 						</div>
 						<div class="items__item-price">
-							<%-product.price%>
+							<%-product.price%> 원
 						</div>
 					</li>
 				</a>

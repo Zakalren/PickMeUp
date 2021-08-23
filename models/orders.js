@@ -12,9 +12,20 @@ const ordersSchema = new Schema({
         type: Array,
         required: true
     },
+    customer: {
+        type: String,
+        required: true
+    },
     issuedAt: {
         type: Date,
         default: Date.now
+    },
+    complete: {
+        type: Boolean,
+        default: false
+    },
+    paymentData: {
+        type: Object
     }
 }, {
     versionKey: false

@@ -122,7 +122,7 @@ router.get('/basket', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');
 
-    res.render('shoppingbasket', { basket: req.user.shopping_basket });
+    res.render('shoppingbasket', { basket: req.user.shopping_basket, user: req.user });
 });
 
 // add to basket

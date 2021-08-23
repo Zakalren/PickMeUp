@@ -11,6 +11,7 @@
 	<link href="/css/menutitle.css" rel="stylesheet" />
 	<script type="text/javascript">
 		var basket = JSON.parse('<%-JSON.stringify(basket)%>');
+		var user = JSON.parse('<%-JSON.stringify(user)%>');
 	</script>
 </head>
 
@@ -52,7 +53,7 @@
 									</span>원
 								</div>
 								<button class="shopping-list-item__delete-button image"
-									onclick="deleteProducts(<%-i%>);"></button>
+									onclick="deleteProducts(<%-i%>, true);"></button>
 							</li>
 							<% } %>
 				</ul>
@@ -106,11 +107,12 @@
 		</div>
 		<div class="shoppingbag--button-box">
 			<button class="shoppingbag--all-cancel-button image"></button>
-			<button class="shoppingbag--purchase-button image"></button>
+			<button class="shoppingbag--purchase-button image" onclick="requestPay()"></button>
 		</div>
 	</main>
 
 	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 	<script src="/js/shoppingbasket.js"></script>
 </body>
 

@@ -1,7 +1,29 @@
 import express from 'express'
 import axios from 'axios'
+import config from '../config'
+import Order from '../models/orders'
 
 const router = express.Router();
+
+router.post('/issue', (req, res, next) => {
+    if (!req.user)
+        return res.status(500).send('login first');
+
+    const { items, amount } = req.body;
+
+    const order = new Order({
+        items: JSON.parse(items),
+        amount: amount,
+        customer: req.user.service_number
+    });
+
+    order.save((err, order) => {
+        if (err)
+            return res.status(500).send(err);
+
+        return res.send(order._id);
+    });
+});
 
 // called when the payment is complete.
 router.post('/complete', async (req, res, next) => {
@@ -11,33 +33,35 @@ router.post('/complete', async (req, res, next) => {
         const getToken = await axios({
             url: 'https://api.iamport.kr/users/getToken',
             method: 'post',
-            headers: { 'Content-Type': 'applications/json' },
             data: {
-                imp_key: 'imp_apikey', // api key
-                imp_secret: 'secret' // secret key
+                imp_key: config.imp_key, // api key
+                imp_secret: config.imp_secret // secret key
             }
         });
 
         const access_token = getToken.data.response;
+        console.log('token', access_token.access_token);
 
         const getPaymentData = await axios({
             url: `https://api.iamport.kr/payments/${imp_uid}`,
             method: 'get',
-            headers: { 'Authorization': access_token }
+            headers: { 'Authorization': access_token.access_token }
         });
 
         const paymentData = getPaymentData.data.response;
+        console.log(paymentData);
 
-        const order = await Orders.findById(paymentData.merchant_uid);
+        const order = await Order.findById(paymentData.merchant_uid);
+        console.log('order', order);
         const amountToBePaid = order.amount;
 
         const { amount, status } = paymentData;
         if (amount == amountToBePaid) {
-            await Orders.findByIdAndUpdate(merchant_uid, { $set: paymentData });
+            await Order.findByIdAndUpdate(merchant_uid, { $set: paymentData });
 
             switch (status) {
                 case 'paid':
-                    res.send('결제 성공');
+                    return res.send('결제 성공');
                     break;
             }
         }
