@@ -35,7 +35,7 @@ function checkLogIn() {
 
 	$.ajax({
 		type: 'get',
-		url: '/user/profile',
+		url: '/profile',
 		success: function (data) {
 			result = true;
 		},

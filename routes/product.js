@@ -1,12 +1,12 @@
 import express from 'express'
-import Products from '../models/products'
-import Users from '../models/users'
+
+import Product from '../models/products'
 
 const router = express.Router();
 
 // get products list
 router.get('/list', (req, res, next) => {
-    Products.find({}, (err, products) => {
+    Product.find({}, (err, products) => {
         if (err)
             return res.status(500).send(err);
 
@@ -15,7 +15,7 @@ router.get('/list', (req, res, next) => {
 });
 
 router.get('/list/:category', (req, res, next) => {
-    Products.find({ category: req.params.category }, (err, products) => {
+    Product.find({ category: req.params.category }, (err, products) => {
         if (err)
             return res.status(500).send(err);
 
@@ -26,18 +26,18 @@ router.get('/list/:category', (req, res, next) => {
 // create product
 router.post('/create', (req, res, next) => {
     const { name, image, price, category } = req.body;
-    const products = new Products({
+    const product = new Product({
         name: name,
         image: image,
         price: price,
         category: category
     });
 
-    products.save((err, product) => {
+    product.save((err, p) => {
         if (err)
             return res.status(500).send(err);
 
-        return res.json(product);
+        return res.json(p);
     });
 });
 
@@ -55,7 +55,7 @@ router.get('/:id', (req, res, next) => {
 router.put('/update/:id', (req, res, next) => {
     let name, image, price, category;
 
-    Products.findById(req.params.id, (err, product) => {
+    Product.findById(req.params.id, (err, product) => {
         if (err)
             return res.status(500).send(err);
 
@@ -67,7 +67,7 @@ router.put('/update/:id', (req, res, next) => {
     price = req.body.price ? req.body.price : price;
     category = req.body.category ? req.body.category : category;
 
-    Products.findByIdAndUpdate(req.params.id, {
+    Product.findByIdAndUpdate(req.params.id, {
         name: name,
         image: image,
         price: price,
@@ -82,7 +82,7 @@ router.put('/update/:id', (req, res, next) => {
 
 // delete product
 router.delete('/delete/:id', (req, res, next) => {
-    Products.findByIdAndDelete(req.params.id, (err, product) => {
+    Product.findByIdAndDelete(req.params.id, (err, product) => {
         if (err)
             return res.status(500).send(err);
 

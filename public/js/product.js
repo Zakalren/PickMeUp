@@ -11,7 +11,7 @@ function add_to_basket(id, amount) {
 
     $.ajax({
         method: 'post',
-        url: '/user/add_to_basket',
+        url: '/basket/add',
         data: {
             id: id,
             amount: amount
@@ -20,7 +20,7 @@ function add_to_basket(id, amount) {
             let move = confirm('장바구니에 상품을 담았습니다. 장바구니로 이동할까요?');
 
             if (move) {
-                window.location = '/user/basket';
+                window.location = '/basket';
                 return;
             }
         },

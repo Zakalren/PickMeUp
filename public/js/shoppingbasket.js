@@ -1,9 +1,18 @@
+var totalPrice = 0;
+basket.forEach(function (product) {
+    totalPrice += product.price * product.amount;
+});
+$('.total-cost__number').text(totalPrice + ' ');
+
+var IMP = window.IMP;
+IMP.init('imp55921996');
+
 function deleteProducts(index, reload) {
     basket.splice(index, 1);
     console.log(JSON.stringify(basket));
     $.ajax({
         method: 'post',
-        url: 'update_basket',
+        url: '/basket/update',
         data: {
             basket: JSON.stringify(basket)
         },
@@ -13,15 +22,6 @@ function deleteProducts(index, reload) {
         }
     });
 }
-
-var totalPrice = 0;
-basket.forEach(function (product) {
-    totalPrice += product.price * product.amount;
-});
-$('.total-cost__number').text(totalPrice + ' ');
-
-var IMP = window.IMP;
-IMP.init('imp55921996');
 
 function requestPay() {
     let orderId;

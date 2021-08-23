@@ -38,7 +38,7 @@ function onSubmitEventHandler(event) {
 
 	$.ajax({
 		type: 'post',
-		url: 'edit',
+		url: '/profile/edit',
 		data: {
 			'password': password,
 			'tel_number': tel_number,
