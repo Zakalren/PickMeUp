@@ -1,0 +1,132 @@
+.selectproduct__main-content {
+  width: 100%;
+  height: 150vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-content__product-count {
+  width: 100%;
+  height: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-count--product {
+  width: 35vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.product__product-image {
+  width: 35vw;
+  height: 40vw;
+  background-image: url(../images/shopping_bag.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 3px solid black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.product__product-price {
+  width: 35vw;
+  height: 7vw;
+  border: 3px solid black;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.product-count__right-column {
+  width: 100%;
+  height: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-count--product-name {
+  width: 95%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 30px;
+}
+
+.product-count--count {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-count--count-input {
+  width: 20vw;
+  height: 80px;
+  text-align: center;
+  font-size: 30px;
+  border: 3px solid deepskyblue;
+}
+
+.selectproduct__button-tab {
+  width: 100%;
+  height: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-tab__purchase-button,
+.button-tab__add-shopping-bag-button {
+  width: 90vw;
+  height: 80px;
+}
+
+.button-tab__purchase-button {
+  background-image: url(../../images/purchase.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.button-tab__add-shopping-bag-button {
+  background-image: url(../images/shopping_bag.png);
+}
+
+.selectproduct__navigation-bar {
+  width: 85vw;
+  height: 60vw;
+  border-top: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  list-style-type: none;
+}
+
+.navigation-bar__product {
+  width: 30vw;
+  height: 50vw;
+  margin-right: 10vw;
+}

@@ -1,0 +1,81 @@
+.main {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.btn-mobile-snack {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/snack.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-essentials {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/essentials.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-dairy {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/dairy.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-liquors {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/liquors.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-icecream {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/icecream.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-iced {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/iced.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-health {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/health.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-cosmetics {
+    width: 45vw;
+    height: 30vw;
+    background-image: url(../../images/mobile/cosmetics.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn-mobile-event {
+    width: 90vw;
+}

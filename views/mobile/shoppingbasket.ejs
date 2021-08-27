@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>언택트 BX</title>
+    <link href="/css/mobile/styles.css" rel="stylesheet" />
+    <link href="/css/mobile/header.css" rel="stylesheet" />
+    <link href="/css/mobile/shoppingbasket.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/mobile/footer.css">
+    <script type="text/javascript">
+        var basket = JSON.parse('<%-JSON.stringify(basket)%>');
+        var user = JSON.parse('<%-JSON.stringify(user)%>');
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <div class="header__logo"></div>
+        </a>
+    </header>
+
+    <main class="shoppingbag__main main">
+        <div class="main-content">
+            <div class="shoppingbag--listbox">
+                <div class="listbox__header">
+                    <div class="listbox__header__title">
+                        ● 장바구니
+                    </div>
+                </div>
+                <ul class="listbox__list shopping-list">
+                    <% for (let i=0; i < basket.length; i++) {%>
+                        <% const product=basket[i]; %>
+                            <li class="shopping-list-item">
+                                <div class="shopping-list-item-main">
+                                    -
+                                    <span class="shopping-list-item-name">
+                                        <%- product.name %>
+                                    </span>
+                                    x
+                                    <span class="shopping-list-item-count">
+                                        <%- product.amount %>
+                                    </span>
+                                    :
+                                    <span class="shopping-list-item-price">
+                                        <%- product.price * product.amount %>
+                                    </span>원
+                                </div>
+                                <button class="shopping-list-item__delete-button image"
+                                    onclick="deleteProducts('<%-i%>', true);"></button>
+                            </li>
+                            <% } %>
+                </ul>
+            </div>
+        </div>
+
+        <div class="shoppingbag--pay content-box">
+            <div class="pay__left-column">
+                MY pay
+            </div>
+            <div class="pay__right-column">
+                <span class="pay__pay-method">
+                    IBK기업은행
+                </span>
+                <button class="pay__pay-method-select image"></button>
+            </div>
+        </div>
+
+        <div class="shoppingbag--cash-back-check content-box">
+            <div class="cash-back-check__left-column">
+                이번 달 캐시백
+            </div>
+            <div class="cash-back-check__right-column">
+                (월 1회)
+                <button class="cash-back-check__select image"></button>
+            </div>
+        </div>
+
+        <div class="shoppingbag--reserve-time content-box">
+            <div class="reserve-time__left-column">
+                수령시간
+            </div>
+            <div class="reserve-time__right-column">
+                [시간 선택]
+            </div>
+        </div>
+
+        <div class="shoppingbag--total-cost content-box">
+            <div class="total-cost__left-column">
+                합계:
+            </div>
+            <div class="total-cost__right-column">
+                <span class="total-cost__number">
+                </span>원
+            </div>
+        </div>
+
+        <div class="shoppingbag--agreement content-box">
+            <div class="agreement__left-column">
+                주의사항 및 동의 - [전문 보기]
+            </div>
+            <button class="agreement__check-button image"></button>
+        </div>
+        <div class="shoppingbag--button-box">
+            <button class="shoppingbag--all-cancel-button image"></button>
+            <button class="shoppingbag--purchase-button image" onclick="requestPay()"></button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <a href="">
+                <div class="footer_call"></div>
+            </a>
+
+            <a href="/reservation">
+                <div class="footer_reservation"></div>
+            </a>
+
+            <a href="/">
+                <div class="footer_index"></div>
+            </a>
+
+            <a href="/profile">
+                <div class="footer_profile"></div>
+            </a>
+
+            <a href="/basket">
+                <div class="footer_basket"></div>
+            </a>
+        </div>
+    </footer>
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+    <script src="/js/shoppingbasket.js"></script>
+</body>
+
+</html>

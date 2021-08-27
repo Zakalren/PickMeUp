@@ -5,21 +5,18 @@ import Product from '../models/products'
 const router = express.Router();
 
 // get products list
-router.get('/list', (req, res, next) => {
-    Product.find({}, (err, products) => {
-        if (err)
-            return res.status(500).send(err);
-
-        return res.json(products);
-    });
-});
-
 router.get('/list/:category', (req, res, next) => {
     Product.find({ category: req.params.category }, (err, products) => {
         if (err)
             return res.status(500).send(err);
 
-        return res.render('products', { category: req.params.category, products: products, user: req.isAuthenticated() });
+        const ua = req.header('user-agent');
+
+        if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(ua)) {
+            return res.render('mobile/products', { category: req.params.category, products: products, user: req.isAuthenticated() });
+        } else {
+            return res.render('products', { category: req.params.category, products: products, user: req.isAuthenticated() });
+        }
     });
 });
 
@@ -43,11 +40,22 @@ router.post('/create', (req, res, next) => {
 
 // view product
 router.get('/:id', (req, res, next) => {
-    Products.findById(req.params.id, (err, product) => {
+    Product.findById(req.params.id, (err, product) => {
         if (err)
             return res.status(500).send(err);
 
-        return res.render('product_page', { product: product, user: req.user });
+        Product.find({ category: product.category }, (err, products) => {
+            if (err)
+                return res.status(500).send(err);
+
+            const ua = req.header('user-agent');
+
+            if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(ua)) {
+                return res.render('mobile/product_page', { product: product, user: req.user, category_products: products });
+            } else {
+                return res.render('product_page', { product: product, user: req.user, category_products: products });
+            }
+        });
     });
 });
 

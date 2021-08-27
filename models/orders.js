@@ -24,8 +24,9 @@ const ordersSchema = new Schema({
         type: Boolean,
         default: false
     },
-    paymentData: {
-        type: Object
+    picked: {
+        type: Boolean,
+        default: false
     }
 }, {
     versionKey: false

@@ -1,6 +1,7 @@
 function add_to_basket(id, amount) {
     if (!signed) {
         alert('먼저 로그인 해주세요.');
+        window.location = '/sign/in';
         return;
     }
 

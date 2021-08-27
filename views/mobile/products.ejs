@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>언택트 BX</title>
+	<link href="/css/mobile/styles.css" rel="stylesheet" />
+	<link href="/css/mobile/header.css" rel="stylesheet" />
+	<link href="/css/mobile/menu.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/mobile/footer.css">
+</head>
+
+<body>
+	<header class="header">
+		<a href="/">
+			<div class="header__logo"></div>
+		</a>
+	</header>
+
+	<main class="snack__main main menu__main">
+		<ul class="menu__main__items items">
+			<!-- 12 products per page -->
+			<%products.forEach(function(product) {%>
+				<a class="items__link" href="/product/<%-product._id%>">
+					<li class="items__item">
+						<div class="items__item-picture"
+							style="background-image: url(<%-product.image%>); background-size: 100%; background-position: center center; background-size: contain;">
+						</div>
+						<div class="items__item-price">
+							<%-product.price%> 원
+						</div>
+					</li>
+				</a>
+				<%});%>
+		</ul>
+	</main>
+
+	<footer class="footer">
+		<div>
+			<a href="">
+				<div class="footer_call"></div>
+			</a>
+
+			<a href="/reservation">
+				<div class="footer_reservation"></div>
+			</a>
+
+			<a href="/">
+				<div class="footer_index"></div>
+			</a>
+
+			<a href="/profile">
+				<div class="footer_profile"></div>
+			</a>
+
+			<a href="/basket">
+				<div class="footer_basket"></div>
+			</a>
+		</div>
+	</footer>
+</body>
+
+</html>

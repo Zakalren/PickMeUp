@@ -59,6 +59,13 @@ function showScreen() {
 
 function init() {
 	showScreen();
+	fitShoppingBagHeight();
+}
+
+function fitShoppingBagHeight() {
+	if (basketSize > 5) {
+		document.getElementById('shopping_bag_border').offsetHeight += (basketSize - 5) * 15;
+	}
 }
 
 init();

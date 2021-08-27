@@ -4,12 +4,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>언택트 BX</title>
 	<link href="/css/styles.css" rel="stylesheet" />
 	<link href="/css/header.css" rel="stylesheet" />
 	<link href="/css/index.css" rel="stylesheet" />
 	<script type="text/javascript">
 		var user = JSON.parse('<%-JSON.stringify(user)%>');
+		var basketSize = '<% - basket.length %>';
 	</script>
 </head>
 
@@ -54,7 +56,8 @@
 						</a>
 					</div>
 					<div class="logined-user__id">23-00000000</div>
-					<div class="logined-user__bank-account">ibk 연동</div>
+					<a class="logined-user__bank-account" href="/sign/out">로그아웃</a>
+					<!--<div class="logined-user__bank-account">ibk 연동</div>-->
 				</div>
 				<a href="/sign/in">
 					<div class="logined-user__unlogined image invisible"></div>
@@ -62,38 +65,40 @@
 			</div>
 			<div class="main__goods-reserved-time goods-reserved-time main-border">
 				<div class="goods-reserved-time__title">
-					<a class="goods-reserved-time__link" href="/user/reservation">● 물품 수령 시간</a>
+					<a class="goods-reserved-time__link" href="/reservation">● 주문 목록 보기</a>
 				</div>
 				<ol class="goods-reserved-time__reserve-list reserve-list">
-					<li class="reserve-list__reserved-time reserved-time">
-						- 08/08. 12:30 예정
-					</li>
+					<!--<li class="reserve-list__reserved-time reserved-time">
+						- 08/23. 10:00 예정
+					</li>-->
 				</ol>
 			</div>
-			<div class="main__shopping-bag shopping-bag main-border image">
+			<div id="shopping_bag_border" class="main__shopping-bag shopping-bag main-border image">
 				<div class="shopping-bag__title">
 					<a class="shopping-bag__link" href="/basket">● 장바구니</a>
 				</div>
 				<ul class="shopping-bag__selected-menu-list selected-menu-list">
 					<% if (user) {%>
-						<% user.shopping_basket.forEach(function(product) {%>
-							<li class="selected-menu-list__selected-menu selected-menu">
-								<div class="shopping-list-item-main">
-									-
-									<span class="selected-menu__menu-name">
-										<%- product.name %>
-									</span>
-									x
-									<span class="selected-menu__menu-amount">
-										<%- product.amount %>
-									</span>
-									:
-									<span class="selected-menu__menu-price">
-										<%- product.price * product.amount %>
-									</span>원
-								</div>
-							</li>
-							<% });} %>
+						<% const basket=user.shopping_basket;%>
+							<% for (let i=0; i < basket.length; i++) { %>
+								<% const product=basket[i]; %>
+									<li class="selected-menu-list__selected-menu selected-menu">
+										<div class="shopping-list-item-main">
+											-
+											<span class="selected-menu__menu-name">
+												<%- product.name %>
+											</span>
+											x
+											<span class="selected-menu__menu-amount">
+												<%- product.amount %>
+											</span>
+											:
+											<span class="selected-menu__menu-price">
+												<%- product.price * product.amount %>
+											</span>원
+										</div>
+									</li>
+									<%} }%>
 				</ul>
 			</div>
 			<div class="main__customer-center customer-center main-border">
@@ -188,7 +193,7 @@
 						-
 					</li>
 					<li class="board__article-list__article article">
-						-
+						<a href="mobile">모바일 모드</a>
 					</li>
 				</ol>
 			</div>
@@ -196,7 +201,7 @@
 		<div class="main__line-4">
 			<div class="main__recent-watched recent-watched main-border">
 				<div class="recent-watched__title">
-					최근 본 상품
+
 				</div>
 				<ol class="recent-watched__recent-watched-goods-list recent-watched-goods-list">
 					<li class="recent-watched-goods-list__recent-watched-goods recent-watched-goods">

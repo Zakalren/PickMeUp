@@ -7,16 +7,16 @@ const router = express.Router();
 // Get current profile
 router.get('/', (req, res, next) => {
     if (!req.user)
-        return res.status(500).send('login first');
+        return res.redirect('/sign/in');
 
-    res.render('profile', { user: req.user });
+    return res.render('profile', { user: req.user });
 });
 
 router.get('/edit', (req, res, next) => {
     if (!req.user)
         return res.status(500).send('login first');
 
-    res.render('edit_profile', { user: req.user });
+    return res.render('edit_profile', { user: req.user });
 });
 
 router.post('/edit', (req, res, next) => {

@@ -50,33 +50,20 @@
 			<div class="selectproduct__button-tab">
 				<div class="button-tab__purchase-button image"
 					onclick="add_to_basket('<%-product._id%>', $('#input_amount').val())"></div>
-				<div class="button-tab__add-shopping-bag-button image"></div>
 			</div>
 			<ul class="selectproduct__navigation-bar">
-				<a class="navigation-bar__product-link" href="selectproduct.html">
-					<li class="navigation-bar__product product">
-						<div class="product__product-image image"></div>
-						<div class="product__product-price">400</div>
-					</li>
-				</a>
-				<a class="navigation-bar__product-link" href="selectproduct.html">
-					<li class="navigation-bar__product product">
-						<div class="product__product-image image"></div>
-						<div class="product__product-price">400</div>
-					</li>
-				</a>
-				<a class="navigation-bar__product-link" href="selectproduct.html">
-					<li class="navigation-bar__product product">
-						<div class="product__product-image image"></div>
-						<div class="product__product-price">400</div>
-					</li>
-				</a>
-				<a class="navigation-bar__product-link" href="selectproduct.html">
-					<li class="navigation-bar__product product">
-						<div class="product__product-image image"></div>
-						<div class="product__product-price">400</div>
-					</li>
-				</a>
+				<% if (category_products) {%>
+					<%category_products.forEach(function (p) {%>
+						<a class="navigation-bar__product-link" href="<%-p._id%>">
+							<li class="navigation-bar__product product">
+								<div class="product__product-image image" style="background-image: url(<%-p.image%>);">
+								</div>
+								<div class="product__product-price">
+									<%-p.name%>
+								</div>
+							</li>
+						</a>
+						<% });}%>
 			</ul>
 		</div>
 	</main>

@@ -10,8 +10,14 @@ const router = express.Router();
 const __dirname = path.resolve();
 
 router.get('/up', (req, res, next) => {
-    if (req.user)
-        return res.status(500).send('already signed');
+    const { nextURL } = req.query;
+
+    if (req.user) {
+        if (nextURL)
+            return res.redirect(nextURL);
+        else
+            return res.redirect('/');
+    }
 
     res.render('signup');
 });
@@ -41,10 +47,21 @@ router.post('/up', async (req, res, next) => {
 });
 
 router.get('/in', (req, res, next) => {
-    if (req.user)
-        return res.status(500).send('already signed');
+    const { nextURL } = req.query;
+    const ua = req.header('user-agent');
 
-    res.render('signin');
+    if (req.user) {
+        if (nextURL)
+            return res.redirect(nextURL);
+        else
+            return res.redirect('/');
+    }
+
+    if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(ua)) {
+        res.render('mobile/signin');
+    } else {
+        res.render('signin');
+    }
 });
 
 router.post('/in', passport.authenticate('local', {

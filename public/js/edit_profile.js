@@ -3,6 +3,12 @@ let submitButton = document.querySelector(".submit-button");
 function onSubmitEventHandler(event) {
 	event.preventDefault();
 
+	if (!signed) {
+		alert('먼저 로그인 해주세요.');
+		window.location = '/sign/in';
+		return;
+	}
+
 	let password = document.querySelector('[name=password]').value;
 	let tel_number = document.querySelector('[name=tel_number]').value;
 	let new_password = document.querySelector('[name=new_password]').value;

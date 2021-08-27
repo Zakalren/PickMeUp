@@ -23,6 +23,7 @@ import paymentsRouter from './routes/payments'
 import uploadRouter from './routes/upload'
 import signRouter from './routes/sign'
 import basketRouter from './routes/basket'
+import reservationRouter from './routes/reservation'
 
 const app = express();
 
@@ -57,6 +58,7 @@ app.use('/payments', paymentsRouter);
 app.use('/upload', uploadRouter);
 app.use('/sign', signRouter);
 app.use('/basket', basketRouter);
+app.use('/reservation', reservationRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

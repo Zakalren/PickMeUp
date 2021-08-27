@@ -26,11 +26,22 @@ function deleteProducts(index, reload) {
 function requestPay() {
     let orderId;
 
+    let organizedBasket = [];
+
+    basket.forEach(function (product) {
+        organizedBasket.push({
+            _id: product._id,
+            name: product.name,
+            amount: product.amount,
+            price: product.price
+        });
+    });
+
     $.ajax({
         method: 'post',
         url: '/payments/issue',
         data: {
-            items: JSON.stringify(basket),
+            items: JSON.stringify(organizedBasket),
             amount: totalPrice
         },
         success: function (data) {
@@ -47,7 +58,8 @@ function requestPay() {
         amount: totalPrice,
         buyer_name: user.name,
         buyer_tel: user.tel_number,
-        buyer_email: ''
+        buyer_email: '',
+        m_redirect_url: 'fauxseal.iptime.org:3000/payments/complete/mobile'
     }, function (res) {
         if (res.success) {
             $.ajax({

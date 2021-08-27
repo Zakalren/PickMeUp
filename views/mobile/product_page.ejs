@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>언택트 BX</title>
+    <link href="/css/mobile/styles.css" rel="stylesheet" />
+    <link href="/css/mobile/header.css" rel="stylesheet" />
+    <link href="/css/mobile/selectproduct.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/mobile/footer.css">
+    <script type="text/javascript">
+        var signed = false;
+    			<% if (user) {%>
+            signed = true;
+    				<% }%>
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <div class="header__logo"></div>
+        </a>
+    </header>
+
+    <main class="selectproduct__main main">
+        <div class="selectproduct__main-content">
+            <div class="main-content__product-count">
+                <div class="product-count--product product">
+                    <div class="product__product-image image" style="background-image: url(<%-product.image%>);"></div>
+                    <div class="product__product-price">
+                        <%- product.price %> 원
+                    </div>
+                </div>
+                <div class="product-count__right-column">
+                    <div class="product-count--product-name">
+                        <%- product.name %>
+                    </div>
+                    <div class="product-count--count">
+                        <div class="count__left-arrow image"></div>
+                        <input id="input_amount" class="product-count--count-input" type="number" value="1" />
+                        <div class="count__right-arrow image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="selectproduct__button-tab">
+                <div class="button-tab__purchase-button image"
+                    onclick="add_to_basket('<%-product._id%>', $('#input_amount').val())"></div>
+            </div>
+            <ul class="selectproduct__navigation-bar">
+                <% if (category_products) {%>
+                    <%category_products.forEach(function (p) {%>
+                        <a class="navigation-bar__product-link" href="<%-p._id%>">
+                            <li class="navigation-bar__product product">
+                                <div class="product__product-image image" style="background-image: url(<%-p.image%>);">
+                                </div>
+                                <div class="product__product-price">
+                                    <%-p.name%>
+                                </div>
+                            </li>
+                        </a>
+                        <% });}%>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <a href="">
+                <div class="footer_call"></div>
+            </a>
+
+            <a href="/reservation">
+                <div class="footer_reservation"></div>
+            </a>
+
+            <a href="/">
+                <div class="footer_index"></div>
+            </a>
+
+            <a href="/profile">
+                <div class="footer_profile"></div>
+            </a>
+
+            <a href="/basket">
+                <div class="footer_basket"></div>
+            </a>
+        </div>
+    </footer>
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/product.js"></script>
+</body>
+
+</html>

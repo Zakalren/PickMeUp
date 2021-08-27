@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>언택트 BX</title>
+    <link href="/css/mobile/styles.css" rel="stylesheet" />
+    <link href="/css/mobile/header.css" rel="stylesheet" />
+    <link href="/css/mobile/signin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/mobile/footer.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <div class="header__logo"></div>
+        </a>
+    </header>
+
+    <main class="signin">
+        <h1>로그인</h1>
+
+        <form action="/sign/in" method="post">
+            <input type="text" name="service_number" class="input-service_number" placeholder="군번">
+            <p></p>
+            <input type="password" name="password" class="input-password" placeholder="비밀번호">
+            <p></p>
+            <input class="input-submit" type="submit" value="로그인">
+        </form>
+        <p></p>
+        <a href="/sign/up">
+            회원가입
+        </a>
+    </main>
+</body>
+
+</html>

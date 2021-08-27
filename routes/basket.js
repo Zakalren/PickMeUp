@@ -6,10 +6,19 @@ import User from '../models/users'
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    if (!req.user)
-        return res.status(500).send('login first');
+    const ua = req.header('user-agent');
 
-    res.render('shoppingbasket', { basket: req.user.shopping_basket, user: req.user });
+    if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(ua)) {
+        if (!req.user)
+            return res.redirect('/sign/in');
+
+        res.render('mobile/shoppingbasket', { basket: req.user.shopping_basket, user: req.user });
+    } else {
+        if (!req.user)
+            return res.status(500).send('login first');
+
+        res.render('shoppingbasket', { basket: req.user.shopping_basket, user: req.user });
+    }
 });
 
 router.post('/add', (req, res, next) => {

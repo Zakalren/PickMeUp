@@ -1,0 +1,66 @@
+.footer {
+	position: fixed;
+	background-color: white;
+	border-top: 4px solid black;
+	padding-top: 3px;
+	bottom: 0px;
+	display: table;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.footer_call {
+	background-color: #90cfea;
+	background-image: url(../../images/mobile/call.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+    width: 18vw;
+	height: 8vw;
+    display: table-cell;
+}
+
+.footer_reservation {
+    background-color: #90cfea;
+	background-image: url(../../images/mobile/reservation.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+    width: 18vw;
+	height: 8vw;
+    display: table-cell;
+}
+
+.footer_index {
+    background-color: #90cfea;
+	background-image: url(../../images/mobile/index.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+    width: 18vw;
+	height: 8vw;
+    display: table-cell;
+}
+
+.footer_profile {
+    background-color: #90cfea;
+	background-image: url(../../images/mobile/profile.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+    width: 18vw;
+	height: 8vw;
+    display: table-cell;
+}
+
+.footer_basket {
+    background-color: #90cfea;
+	background-image: url(../../images/mobile/basket.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+    width: 18vw;
+	height: 8vw;
+    display: table-cell;
+}
