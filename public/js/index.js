@@ -38,9 +38,11 @@ function checkLogIn() {
 		url: '/profile',
 		success: function (data) {
 			result = true;
+			console.log("success", data);
 		},
 		error: function (err) {
 			result = false;
+			console.log("failed", err);
 		},
 		async: false
 	});
@@ -60,12 +62,6 @@ function showScreen() {
 function init() {
 	showScreen();
 	fitShoppingBagHeight();
-}
-
-function fitShoppingBagHeight() {
-	if (basketSize > 5) {
-		document.getElementById('shopping_bag_border').offsetHeight += (basketSize - 5) * 15;
-	}
 }
 
 init();

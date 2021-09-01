@@ -7,7 +7,7 @@ const router = express.Router();
 // Get current profile
 router.get('/', (req, res, next) => {
     if (!req.user)
-        return res.redirect('/sign/in');
+        return res.status(500).send('login first');
 
     return res.render('profile', { user: req.user });
 });
